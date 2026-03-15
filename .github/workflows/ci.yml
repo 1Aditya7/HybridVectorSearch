@@ -25,6 +25,10 @@ jobs:
       - name: Setup CMake
         uses: lukka/get-cmake@latest
 
+      - name: Setup MSVC
+        if: runner.os == 'Windows'
+        uses: ilammy/msvc-dev-cmd@v1
+
       - name: Bootstrap vcpkg (Unix)
         if: runner.os != 'Windows'
         run: ./vcpkg/bootstrap-vcpkg.sh
@@ -34,8 +38,18 @@ jobs:
         run: .\vcpkg\bootstrap-vcpkg.bat
         shell: pwsh
 
-      - name: Configure
+      - name: Configure (Windows)
+        if: runner.os == 'Windows'
+        run: cmake --preset windows-msvc
+
+      - name: Build (Windows)
+        if: runner.os == 'Windows'
+        run: cmake --build --preset windows-msvc
+
+      - name: Configure (Unix)
+        if: runner.os != 'Windows'
         run: cmake --preset default
 
-      - name: Build
+      - name: Build (Unix)
+        if: runner.os != 'Windows'
         run: cmake --build --preset default
