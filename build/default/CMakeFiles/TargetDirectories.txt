@@ -1,3 +1,0 @@
-/Users/aditya/Desktop/HybridVectorSearch/build/default/CMakeFiles/HybridVectorSearch.dir
-/Users/aditya/Desktop/HybridVectorSearch/build/default/CMakeFiles/edit_cache.dir
-/Users/aditya/Desktop/HybridVectorSearch/build/default/CMakeFiles/rebuild_cache.dir

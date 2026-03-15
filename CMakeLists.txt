@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+find_package(fmt CONFIG REQUIRED)
+
 add_executable(HybridVectorSearch
     src/main.cpp
 )
@@ -13,6 +15,11 @@ add_executable(HybridVectorSearch
 target_include_directories(HybridVectorSearch
     PRIVATE
         ${PROJECT_SOURCE_DIR}/include
+)
+
+target_link_libraries(HybridVectorSearch
+    PRIVATE
+        fmt::fmt
 )
 
 if(MSVC)

@@ -1,6 +1,6 @@
-#include <iostream>
+#include <fmt/core.h>
 
 int main() {
-    std::cout << "HybridVectorSearch setup works.\n";
+    fmt::print("HybridVectorSearch setup with fmt works.\n");
     return 0;
 }
